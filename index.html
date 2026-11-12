@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa Malibu | Luxury Oceanfront Home</title>
-    <!-- Favicon de Lujo (Letra M dorada) -->
+    <!-- Favicon de Lujo -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0a0a'/><path d='M20 80 L20 20 L50 50 L80 20 L80 80' stroke='%23B68A3A' stroke-width='6' stroke-linejoin='round' stroke-linecap='round' fill='none'/></svg>">
     
     <!-- Google Fonts -->
@@ -37,7 +37,6 @@
     <style>
         body { background-color: #050505; color: #f5f5f5; overflow-x: hidden; }
         
-        /* Glassmorphism Premium */
         .glassmorphism {
             background: rgba(15, 15, 15, 0.4);
             backdrop-filter: blur(16px);
@@ -58,13 +57,11 @@
             background-attachment: fixed;
         }
 
-        /* Language Toggle Classes */
         .en { display: none; }
         .es { display: block; }
         span.en, span.es { display: inline; }
         span.en { display: none; }
         
-        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             width: 65px;
@@ -85,11 +82,9 @@
         }
         .whatsapp-float:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4); }
 
-        /* Scroll Revelations */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Hide Scrollbar for Slider */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -241,10 +236,9 @@
                 </div>
             </div>
             
-            <!-- Slider Container (8 Principal Images) -->
             <div class="reveal">
                 <div id="gallery-slider" class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 hide-scrollbar cursor-grab active:cursor-grabbing">
-                    <!-- Images will be injected here via JS -->
+                    <!-- Las imagenes se inyectarán aquí -->
                 </div>
                 <p class="text-center text-xs text-gray-500 tracking-widest mt-4 uppercase"><span class="es">Desliza para explorar</span><span class="en">Swipe to explore</span></p>
             </div>
@@ -254,7 +248,6 @@
     <!-- Map & Contact Section -->
     <section id="contact" class="py-32 max-w-[90rem] mx-auto px-6 lg:px-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <!-- Contact Form -->
             <div class="lg:col-span-5 reveal">
                 <span class="text-gold text-sm font-bold tracking-[0.2em] uppercase mb-4 block"><span class="es">Contacto</span><span class="en">Contact</span></span>
                 <h2 class="text-3xl lg:text-4xl font-light text-white mb-2">
@@ -307,7 +300,6 @@
                 </div>
             </div>
 
-            <!-- Map -->
             <div class="lg:col-span-7 reveal h-[500px] lg:h-auto min-h-[500px] rounded-sm overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 border border-white/5">
                 <iframe src="https://maps.google.com/maps?cid=9528309719441326799&hl=es&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
@@ -329,7 +321,7 @@
         </p>
     </footer>
 
-    <!-- Fullscreen Lightbox Modal (For ALL 30 JPG images) -->
+    <!-- Fullscreen Lightbox Modal (30 JPG images) -->
     <div id="lightbox" class="fixed inset-0 z-[100] bg-black hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500">
         <div class="absolute top-0 w-full p-6 flex justify-between items-center z-50 bg-gradient-to-b from-black/80 to-transparent">
             <div class="text-gold font-bold tracking-[0.2em] text-sm" id="lightbox-counter">1 / 30</div>
@@ -343,7 +335,8 @@
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
             
-            <img id="lightbox-img" src="" class="max-h-full max-w-full object-contain shadow-2xl transition-opacity duration-300 opacity-0">
+            <!-- Added error handler to debug missing images on console -->
+            <img id="lightbox-img" src="" onerror="console.error('No se encontro la imagen: ' + this.src)" class="max-h-full max-w-full object-contain shadow-2xl transition-opacity duration-300 opacity-0">
             
             <button onclick="nextImage(event)" class="absolute right-4 lg:right-12 text-white text-2xl hover:text-black hover:bg-gold transition bg-white/10 backdrop-blur-md w-14 h-14 rounded-full flex items-center justify-center z-50">
                 <i class="fa-solid fa-chevron-right"></i>
@@ -353,7 +346,7 @@
 
     <!-- Scripts -->
     <script>
-        // --- 1. Master Image List (Todas las 30 imágenes JPG extraídas de la última captura) ---
+        // --- 1. MATRIZ CORREGIDA MILIMÉTRICAMENTE ---
         const allImages = [
             "exterior-3-2-scaled.jpg",
             "exterior-2-2-scaled.jpg",
@@ -367,13 +360,13 @@
             "room1-5-scaled.jpg",
             "room1-2-scaled.jpg",
             "principal-scaled.jpg",
-            "general-d-scaled.jpg",
+            "general-4-scaled.jpg", // Antes decía general-d
             "pasillo2-scaled.jpg",
             "pasillo-scaled.jpg",
             "kitchen-3-scaled.jpg",
             "kitchen-5-scaled.jpg",
             "kitchen-1-scaled.jpg",
-            "WhatsApp-Image-2025-08-21-at-12.00.40-PM-1-1.jpg",
+            "WhatsApp-Image-2025-06-21-at-12.00.40-PM-1-1.jpg", // Antes decía 08-21
             "kitchen-4-scaled.jpg",
             "campfire-scaled.jpg",
             "pool-3-scaled.jpg",
@@ -387,11 +380,10 @@
             "panoramica-2-scaled.jpg"
         ];
 
-        // Las 8 principales para el slider interactivo (Actualizadas a .jpg)
         const principalImages = [
             "panoramica-2-scaled.jpg", 
             "pool-1-scaled.jpg", 
-            "general-d-scaled.jpg", 
+            "general-4-scaled.jpg", 
             "kitchen-4-scaled.jpg", 
             "principal-scaled.jpg", 
             "pool-2-scaled.jpg", 
@@ -399,17 +391,15 @@
             "exterior-2-2-scaled.jpg"
         ];
 
-        // Construir el Slider Inicial
         const sliderContainer = document.getElementById('gallery-slider');
         principalImages.forEach((imgSrc) => {
             const globalIndex = allImages.indexOf(imgSrc);
             const slide = document.createElement('div');
-            slide.className = 'snap-center flex-shrink-0 w-[85vw] sm:w-[60vw] lg:w-[30vw] h-[400px] lg:h-[450px] relative rounded-sm overflow-hidden group cursor-pointer';
-            // Prevenir errores si alguna de las 8 principales no se encuentra en el índice
+            slide.className = 'snap-center flex-shrink-0 w-[85vw] sm:w-[60vw] lg:w-[30vw] h-[400px] lg:h-[450px] relative rounded-sm overflow-hidden group cursor-pointer bg-gray-900 flex items-center justify-center';
             slide.onclick = () => openLightbox(globalIndex !== -1 ? globalIndex : 0);
             
             slide.innerHTML = `
-                <img src="${imgSrc}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy">
+                <img src="${imgSrc}" onerror="this.style.display='none'; this.parentElement.innerHTML += '<span class=\\'text-gray-500 text-xs\\'>Error al cargar: ${imgSrc}</span>'" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500"></div>
                 <div class="absolute bottom-6 right-6 bg-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-sm text-xs font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2">
                     <i class="fa-solid fa-expand"></i> Ampliar
@@ -418,7 +408,6 @@
             sliderContainer.appendChild(slide);
         });
 
-        // Botón final en el slider para ver TODO
         const seeAllSlide = document.createElement('div');
         seeAllSlide.className = 'snap-center flex-shrink-0 w-[85vw] sm:w-[60vw] lg:w-[30vw] h-[400px] lg:h-[450px] relative rounded-sm overflow-hidden flex flex-col items-center justify-center border border-gray-800 bg-[#0a0a0a] hover:bg-[#111] transition-colors cursor-pointer group';
         seeAllSlide.onclick = () => openLightbox(0);
@@ -431,13 +420,11 @@
         `;
         sliderContainer.appendChild(seeAllSlide);
 
-        // --- 2. Lógica del Slider (Botones manuales) ---
         function scrollSlider(direction) {
             const scrollAmount = window.innerWidth > 1024 ? window.innerWidth * 0.3 : window.innerWidth * 0.85;
             sliderContainer.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
-        // --- 3. Lógica del Lightbox (Galería de 30 fotos con Swipe) ---
         let currentImageIndex = 0;
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -464,7 +451,7 @@
             if(e) e.stopPropagation();
             fadeImage(() => {
                 currentImageIndex = (currentImageIndex + 1) % allImages.length;
-                updateLightboxContent(false);
+                updateLightboxContent();
             });
         }
 
@@ -472,7 +459,7 @@
             if(e) e.stopPropagation();
             fadeImage(() => {
                 currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
-                updateLightboxContent(false);
+                updateLightboxContent();
             });
         }
 
@@ -482,7 +469,7 @@
             setTimeout(callback, 200);
         }
 
-        function updateLightboxContent(firstLoad = true) {
+        function updateLightboxContent() {
             lightboxImg.src = allImages[currentImageIndex];
             lightboxCounter.textContent = `${currentImageIndex + 1} / ${allImages.length}`;
             lightboxImg.onload = () => {
@@ -491,7 +478,6 @@
             };
         }
 
-        // Eventos táctiles para Swipe en Móvil en el Lightbox
         let touchstartX = 0;
         let touchendX = 0;
         const touchArea = document.getElementById('lightbox-touch-area');
@@ -503,8 +489,8 @@
         }, {passive: true});
 
         function handleSwipe() {
-            if (touchendX < touchstartX - 50) nextImage(); // Swipe left
-            if (touchendX > touchstartX + 50) prevImage(); // Swipe right
+            if (touchendX < touchstartX - 50) nextImage();
+            if (touchendX > touchstartX + 50) prevImage();
         }
 
         document.addEventListener('keydown', (e) => {
@@ -515,7 +501,6 @@
             }
         });
 
-        // --- 4. Sistema Multi-idioma ---
         let currentLang = 'es';
         function toggleLanguage() {
             const btnText = document.getElementById('lang-btn-text');
@@ -541,7 +526,6 @@
             }
         }
 
-        // --- 5. Animaciones al hacer Scroll (Reveal) y Navbar ---
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
