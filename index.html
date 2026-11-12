@@ -67,13 +67,16 @@
             text-align: center;
             font-size: 30px;
             box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            z-index: 100;
+            z-index: 90;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: transform 0.3s ease;
         }
         .whatsapp-float:hover { transform: scale(1.1); }
+        
+        /* Lightbox Animations */
+        #lightbox { transition: opacity 0.3s ease; }
     </style>
 </head>
 <body class="antialiased">
@@ -83,7 +86,6 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <!-- Logo Placeholder -->
                     <div class="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center">
                         <i class="fa-solid fa-water text-gold"></i>
                     </div>
@@ -160,7 +162,7 @@
                 <div class="p-8">
                     <h3 class="text-2xl font-bold text-white mb-4">
                         <span class="es">Elegancia y Comodidad</span>
-                        <span class="en">An Space of Elegance and Comfort</span>
+                        <span class="en">A Space of Elegance and Comfort</span>
                     </h3>
                     <p class="text-gray-400 leading-relaxed text-sm">
                         <span class="es">Sus espacios interiores son amplios y modernos. Con una luminosa sala de estar que fluye hacia una cocina gourmet de concepto abierto, áreas de descanso meticulosamente diseñadas para brindar serenidad y detalles contemporáneos en cada rincón.</span>
@@ -178,11 +180,11 @@
                 </h3>
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4 text-gray-300">
                     <li class="flex items-center gap-3"><i class="fa-solid fa-water text-gold"></i> <span class="es">Primera línea de playa</span><span class="en">First line of Malibu Beach</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-bed text-gold"></i> <span>4 Habitaciones / Bedrooms</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-bath text-gold"></i> <span>2.5 Baños / Baths</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-bed text-gold"></i> <span class="es">4 Habitaciones</span><span class="en">4 Bedrooms</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-bath text-gold"></i> <span class="es">2.5 Baños</span><span class="en">2.5 Baths</span></li>
                     <li class="flex items-center gap-3"><i class="fa-solid fa-couch text-gold"></i> <span class="es">2 Salas y Recibidor</span><span class="en">2 Living rooms & Foyer</span></li>
                     <li class="flex items-center gap-3"><i class="fa-solid fa-utensils text-gold"></i> <span class="es">Cocina Integrada Italiana</span><span class="en">Italian Integrated Kitchen</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-car text-gold"></i> <span>6 Parking spaces</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-car text-gold"></i> <span class="es">6 Estacionamientos</span><span class="en">6 Parking spaces</span></li>
                     <li class="flex items-center gap-3"><i class="fa-solid fa-swimming-pool text-gold"></i> <span class="es">Piscina Moderna</span><span class="en">Modern Pool</span></li>
                     <li class="flex items-center gap-3"><i class="fa-solid fa-fire text-gold"></i> <span class="es">Fogata (15 personas)</span><span class="en">Fire pit area (15 people)</span></li>
                     <li class="flex items-center gap-3"><i class="fa-solid fa-stairs text-gold"></i> <span class="es">Escalera flotante</span><span class="en">Floating staircase</span></li>
@@ -197,7 +199,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section (Referencing uploaded webp files) -->
+    <!-- Gallery Section with Complete Image Roster -->
     <section class="py-16 bg-darkcard">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -206,20 +208,82 @@
                     <span class="en">Property Gallery</span>
                 </h2>
                 <div class="h-1 w-20 bg-gold mx-auto mt-4"></div>
+                <p class="text-gray-400 mt-4 text-sm"><span class="es">Haz clic en cualquier imagen para ampliarla</span><span class="en">Click any image to enlarge</span></p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <img src="pool-1-scaled.webp" alt="Pool Area" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800'">
-                <img src="kitchen-4-scaled.webp" alt="Italian Kitchen" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800'">
-                <img src="general-d-scaled.webp" alt="Living Room" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800'">
-                <img src="principal-scaled.webp" alt="Master Bedroom" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800'">
-                <img src="pool-2-scaled.webp" alt="Pool Night" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&q=80&w=800'">
-                <img src="exterior-2-1-scaled.webp" alt="Exterior" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&q=80&w=800'">
-                <img src="pasillo-scaled.webp" alt="Interior Details" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1600607687644-aac4c15cecb1?auto=format&fit=crop&q=80&w=800'">
-                <img src="habit-2-1-scaled.webp" alt="Bedroom 2" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80&w=800'">
+            <!-- Grid Complete of 29 Images -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-container">
+                <!-- Exteriors & Aerials -->
+                <img src="panoramica-2-scaled.webp" alt="Panoramica 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="panoramica.webp" alt="Panoramica" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="exterior-2-1-scaled.webp" alt="Exterior 2-1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="exterior-2-2-scaled.webp" alt="Exterior 2-2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="exterior-3-2-scaled.webp" alt="Exterior 3-2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                
+                <!-- Pool Area -->
+                <img src="pool-1-scaled.webp" alt="Pool 1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="pool-2-scaled.webp" alt="Pool 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="pool-3-scaled.webp" alt="Pool 3" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="pool-4-scaled.webp" alt="Pool 4" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="pool-d-scaled.webp" alt="Pool D" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                
+                <!-- BBQ & Firepit -->
+                <img src="bq-1-2-scaled.webp" alt="BBQ 1-2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="bbq-2-scaled.webp" alt="BBQ 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                
+                <!-- Social Areas & Kitchen -->
+                <img src="general-d-scaled.webp" alt="General Living Area" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="kitchen-1-scaled.webp" alt="Kitchen 1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="kitchen-2-scaled.webp" alt="Kitchen 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="kitchen-3-scaled.webp" alt="Kitchen 3" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="kitchen-4-scaled.webp" alt="Kitchen 4" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                
+                <!-- Hallways & Bathrooms -->
+                <img src="pasillo-scaled.webp" alt="Pasillo 1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="pasillo2-scaled.webp" alt="Pasillo 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="sanitario-scaled.webp" alt="Sanitario" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="sanitario-2-2-scaled.webp" alt="Sanitario 2-2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                
+                <!-- Bedrooms -->
+                <img src="principal-scaled.webp" alt="Habitacion Principal" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="habit-2-scaled.webp" alt="Habitacion 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="habit-2-1-scaled.webp" alt="Habitacion 2-1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="room1-scaled.webp" alt="Room 1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="room1-3-scaled.webp" alt="Room 1-3" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="room1-4-scaled.webp" alt="Room 1-4" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                <img src="room1-d-scaled.webp" alt="Room 1-d" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+                
+                <!-- Extra/Misc -->
+                <img src="WhatsApp-Image-2024-08-21-at-13.09.40-PM-1-1.webp" alt="Extra Image" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
             </div>
         </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300">
+        <!-- Close Button -->
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-4xl hover:text-gold transition z-50">
+            &times;
+        </button>
+        
+        <!-- Main Image Container -->
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <!-- Prev Button -->
+            <button onclick="prevImage(event)" class="absolute left-4 md:left-10 text-white text-4xl hover:text-gold transition bg-black/50 w-12 h-12 rounded-full flex items-center justify-center z-50">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            
+            <img id="lightbox-img" src="" class="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl transition-transform duration-300 select-none">
+            
+            <!-- Next Button -->
+            <button onclick="nextImage(event)" class="absolute right-4 md:right-10 text-white text-4xl hover:text-gold transition bg-black/50 w-12 h-12 rounded-full flex items-center justify-center z-50">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <!-- Image Counter -->
+        <div class="absolute bottom-6 text-gray-400 font-mono text-sm" id="lightbox-counter"></div>
+    </div>
 
     <!-- Map & Contact Section -->
     <section id="contact" class="py-24 max-w-7xl mx-auto px-6 lg:px-8">
@@ -240,7 +304,7 @@
                     <span class="en">And we will get back to you shortly.</span>
                 </p>
 
-                <form action="https://formspree.io/f/xyyqzzzz" method="POST" class="space-y-6"> <!-- Reemplazar con ID de Formspree real -->
+                <form action="https://formspree.io/f/xyyqzzzz" method="POST" class="space-y-6">
                     <div>
                         <label class="block text-sm font-medium text-gray-400 mb-2">
                             <span class="es">Nombre Completo</span><span class="en">Full Name</span>
@@ -295,8 +359,9 @@
         </p>
     </footer>
 
-    <!-- Script for Language Toggle & Navbar Blur -->
+    <!-- Interactive Scripts -->
     <script>
+        // --- 1. Language Toggle Logic ---
         let currentLang = 'es';
         
         function toggleLanguage() {
@@ -317,7 +382,7 @@
             }
         }
 
-        // Add blur to navbar on scroll
+        // --- 2. Navbar Blur on Scroll ---
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
@@ -326,6 +391,75 @@
             } else {
                 nav.classList.remove('shadow-lg');
                 nav.style.background = 'rgba(20, 20, 20, 0.6)';
+            }
+        });
+
+        // --- 3. Lightbox Gallery Logic ---
+        let currentImageIndex = 0;
+        let imagesArray = [];
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryImages = document.querySelectorAll('.gallery-img');
+            
+            galleryImages.forEach((img, index) => {
+                imagesArray.push(img.src);
+                img.addEventListener('click', () => openLightbox(index));
+            });
+        });
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightboxContent();
+            lightbox.classList.remove('hidden');
+            // Timeout to allow display:block to apply before animating opacity
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightboxImg.src = '';
+            }, 300); // Wait for transition
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function nextImage(e) {
+            if(e) e.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
+            updateLightboxContent();
+        }
+
+        function prevImage(e) {
+            if(e) e.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
+            updateLightboxContent();
+        }
+
+        function updateLightboxContent() {
+            lightboxImg.src = imagesArray[currentImageIndex];
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${imagesArray.length}`;
+        }
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.parentElement === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation for Lightbox
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('hidden')) {
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'Escape') closeLightbox();
             }
         });
     </script>
