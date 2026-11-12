@@ -52,7 +52,7 @@
         }
 
         .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(5,5,5,0.3) 0%, rgba(5,5,5,1) 100%), url('panoramica-2-scaled.webp');
+            background-image: linear-gradient(to bottom, rgba(5,5,5,0.3) 0%, rgba(5,5,5,1) 100%), url('panoramica-2-scaled.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -329,10 +329,10 @@
         </p>
     </footer>
 
-    <!-- Fullscreen Lightbox Modal (For ALL 29 images) -->
+    <!-- Fullscreen Lightbox Modal (For ALL 30 JPG images) -->
     <div id="lightbox" class="fixed inset-0 z-[100] bg-black hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500">
         <div class="absolute top-0 w-full p-6 flex justify-between items-center z-50 bg-gradient-to-b from-black/80 to-transparent">
-            <div class="text-gold font-bold tracking-[0.2em] text-sm" id="lightbox-counter">1 / 29</div>
+            <div class="text-gold font-bold tracking-[0.2em] text-sm" id="lightbox-counter">1 / 30</div>
             <button onclick="closeLightbox()" class="text-white text-3xl hover:text-gold transition transform hover:rotate-90 duration-300">
                 &times;
             </button>
@@ -353,34 +353,60 @@
 
     <!-- Scripts -->
     <script>
-        // --- 1. Master Image List (Todas las 29 imágenes válidas extraidas del repositorio) ---
+        // --- 1. Master Image List (Todas las 30 imágenes JPG extraídas de la última captura) ---
         const allImages = [
-            "panoramica-2-scaled.webp", "panoramica.webp", "exterior-2-1-scaled.webp", 
-            "exterior-2-2-scaled.webp", "exterior-3-2-scaled.webp", "pool-1-scaled.webp", 
-            "pool-2-scaled.webp", "pool-3-scaled.webp", "pool-4-scaled.webp", 
-            "pool-d-scaled.webp", "bq-1-2-scaled.webp", "bbq-2-scaled.webp",
-            "general-d-scaled.webp", "kitchen-1-scaled.webp", "kitchen-2-scaled.webp", 
-            "kitchen-3-scaled.webp", "kitchen-4-scaled.webp", "pasillo-scaled.webp", 
-            "pasillo2-scaled.webp", "sanitario-scaled.webp", "sanitario-2-2-scaled.webp",
-            "principal-scaled.webp", "habit-2-scaled.webp", "habit-2-1-scaled.webp", 
-            "room1-2-scaled.webp", "room1-3-scaled.webp", "room1-4-scaled.webp", 
-            "room1-d-scaled.webp", "WhatsApp-Image-2024-08-21-at-13.09.40-PM-1-1.webp"
+            "exterior-3-2-scaled.jpg",
+            "exterior-2-2-scaled.jpg",
+            "exterior-5-2-scaled.jpg",
+            "exterior-7-1-scaled.jpg",
+            "pool-4-scaled.jpg",
+            "pool-5-scaled.jpg",
+            "campfire-2-2-scaled.jpg",
+            "room1-scaled.jpg",
+            "room1-4-scaled.jpg",
+            "room1-5-scaled.jpg",
+            "room1-2-scaled.jpg",
+            "principal-scaled.jpg",
+            "general-d-scaled.jpg",
+            "pasillo2-scaled.jpg",
+            "pasillo-scaled.jpg",
+            "kitchen-3-scaled.jpg",
+            "kitchen-5-scaled.jpg",
+            "kitchen-1-scaled.jpg",
+            "WhatsApp-Image-2025-08-21-at-12.00.40-PM-1-1.jpg",
+            "kitchen-4-scaled.jpg",
+            "campfire-scaled.jpg",
+            "pool-3-scaled.jpg",
+            "pool-2-scaled.jpg",
+            "pool-1-scaled.jpg",
+            "bq1-2-scaled.jpg",
+            "bbq-2-scaled.jpg",
+            "hab3-2-1-scaled.jpg",
+            "hab1-2-scaled.jpg",
+            "panoramica.jpg",
+            "panoramica-2-scaled.jpg"
         ];
 
-        // Las 8 principales para el slider interactivo
+        // Las 8 principales para el slider interactivo (Actualizadas a .jpg)
         const principalImages = [
-            "panoramica-2-scaled.webp", "pool-1-scaled.webp", "general-d-scaled.webp", 
-            "kitchen-4-scaled.webp", "principal-scaled.webp", "pool-2-scaled.webp", 
-            "bq-1-2-scaled.webp", "exterior-2-1-scaled.webp"
+            "panoramica-2-scaled.jpg", 
+            "pool-1-scaled.jpg", 
+            "general-d-scaled.jpg", 
+            "kitchen-4-scaled.jpg", 
+            "principal-scaled.jpg", 
+            "pool-2-scaled.jpg", 
+            "bq1-2-scaled.jpg", 
+            "exterior-2-2-scaled.jpg"
         ];
 
-        // Construir el Slider Inical
+        // Construir el Slider Inicial
         const sliderContainer = document.getElementById('gallery-slider');
-        principalImages.forEach((imgSrc, index) => {
+        principalImages.forEach((imgSrc) => {
             const globalIndex = allImages.indexOf(imgSrc);
             const slide = document.createElement('div');
             slide.className = 'snap-center flex-shrink-0 w-[85vw] sm:w-[60vw] lg:w-[30vw] h-[400px] lg:h-[450px] relative rounded-sm overflow-hidden group cursor-pointer';
-            slide.onclick = () => openLightbox(globalIndex);
+            // Prevenir errores si alguna de las 8 principales no se encuentra en el índice
+            slide.onclick = () => openLightbox(globalIndex !== -1 ? globalIndex : 0);
             
             slide.innerHTML = `
                 <img src="${imgSrc}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy">
@@ -401,7 +427,7 @@
                 <i class="fa-solid fa-images"></i>
             </div>
             <h3 class="text-white font-bold tracking-[0.2em] uppercase text-sm"><span class="es">Ver Galería</span><span class="en">View Gallery</span></h3>
-            <p class="text-gray-500 mt-2 text-xs">(29 Fotos)</p>
+            <p class="text-gray-500 mt-2 text-xs">(${allImages.length} Fotos)</p>
         `;
         sliderContainer.appendChild(seeAllSlide);
 
@@ -411,7 +437,7 @@
             sliderContainer.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
-        // --- 3. Lógica del Lightbox (Galería de 29 fotos con Swipe) ---
+        // --- 3. Lógica del Lightbox (Galería de 30 fotos con Swipe) ---
         let currentImageIndex = 0;
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
