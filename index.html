@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Malibu | Luxury Oceanfront Home</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#B68A3A',
+                        darkbg: '#0a0a0a',
+                        darkcard: '#151515'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0a0a0a; color: #f5f5f5; }
+        .glassmorphism {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #eaddcf, #B68A3A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(10,10,10,1)), url('panoramica-2-scaled.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        /* Language Toggle Classes */
+        .en { display: none; }
+        .es { display: block; }
+        
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glassmorphism transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <!-- Logo Placeholder -->
+                    <div class="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center">
+                        <i class="fa-solid fa-water text-gold"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-widest uppercase text-white">Casa Malibu</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="#contact" class="hidden md:block bg-gold hover:bg-yellow-600 text-white px-6 py-2 rounded-sm text-sm font-semibold tracking-wide uppercase transition-colors">
+                        <span class="es">Contactar</span>
+                        <span class="en">Contact</span>
+                    </a>
+                    <button onclick="toggleLanguage()" class="border border-gray-600 px-3 py-1 rounded text-sm hover:border-gold transition-colors">
+                        <span id="lang-btn-text">EN</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent"></div>
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
+            <h2 class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold mb-4">
+                <span class="es">Nueva Gorgona, Panamá</span>
+                <span class="en">Nueva Gorgona, Panama</span>
+            </h2>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                <span class="es">Moderna Casa Industrial <br> <span class="text-gradient">Frente al Mar</span></span>
+                <span class="en">Modern Industrial Home <br> <span class="text-gradient">Oceanfront</span></span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 font-light mb-8">
+                <span class="es">Donde el lujo se encuentra con la serenidad del mar.</span>
+                <span class="en">Where luxury meets the serenity of the sea.</span>
+            </p>
+            <div class="text-3xl md:text-4xl font-bold text-white mb-10 border-b border-gray-700 pb-6 inline-block">
+                $2,730,000
+            </div>
+            <div>
+                <a href="#contact" class="bg-gold hover:bg-yellow-600 text-white px-8 py-4 rounded-sm text-lg font-semibold tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(182,138,58,0.3)]">
+                    <span class="es">Solicitar Información</span>
+                    <span class="en">Request Information</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Description & Features Grid -->
+    <section class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Descriptions -->
+            <div class="space-y-12">
+                <div class="glassmorphism p-8 rounded-xl border-l-4 border-l-gold">
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        <span class="es">Inversión con Retorno en Airbnb</span>
+                        <span class="en">Investment with Return in Airbnb</span>
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">
+                        <span class="es">Esta propiedad en Playa Malibú no es solo un refugio de lujo frente al mar, sino también una inversión excepcional con retornos seguros. Con el potencial de generar más de $6,000 mensuales, es ideal para quienes buscan un hogar para disfrutar de vacaciones inolvidables, así como para inversores que buscan establecer un negocio próspero. Imagina combinar el placer de vivir en el paraíso con la seguridad de una inversión rentable.</span>
+                        <span class="en">This property in Malibu Beach is not only a luxury oceanfront retreat but also an exceptional investment with secure returns. With the potential to generate over $6,000 monthly, this property is ideal for those seeking a home to enjoy unforgettable vacations as well as for investors looking to establish a thriving business in an exclusive environment. Imagine combining the pleasure of living in paradise with the security of a profitable investment.</span>
+                    </p>
+                </div>
+                
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        <span class="es">Combina diversión y relajación</span>
+                        <span class="en">Combine fun and relaxation</span>
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">
+                        <span class="es">Imagina un estilo de vida donde cada día se siente como unas vacaciones. Disfruta de una piscina moderna, un área de fogata exclusiva con acabados de microcemento para más de 15 personas, barbacoa de última generación y un amplio jardín mantenido por un eficiente sistema de riego subterráneo.</span>
+                        <span class="en">Imagine a lifestyle where every day feels like a vacation. Enjoy a modern pool, the exclusive fire pit area with micro-cement finishes perfect for over 15 people, a state-of-the-art BBQ, and a spacious garden maintained by an efficient underground irrigation system.</span>
+                    </p>
+                </div>
+
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        <span class="es">Elegancia y Comodidad</span>
+                        <span class="en">An Space of Elegance and Comfort</span>
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">
+                        <span class="es">Sus espacios interiores son amplios y modernos. Con una luminosa sala de estar que fluye hacia una cocina gourmet de concepto abierto, áreas de descanso meticulosamente diseñadas para brindar serenidad y detalles contemporáneos en cada rincón.</span>
+                        <span class="en">Its interior spaces are spacious and modern, designed to offer comfort and style. With a bright living room that flows into a gourmet open-concept kitchen, resting areas meticulously designed to provide serenity, and high-quality contemporary finishes.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Features List -->
+            <div class="glassmorphism p-10 rounded-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-16 bg-gold opacity-10 blur-[100px] rounded-full"></div>
+                <h3 class="text-3xl font-bold text-white mb-8 border-b border-gray-700 pb-4">
+                    <span class="es">Características Principales</span>
+                    <span class="en">Property Features</span>
+                </h3>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4 text-gray-300">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-water text-gold"></i> <span class="es">Primera línea de playa</span><span class="en">First line of Malibu Beach</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-bed text-gold"></i> <span>4 Habitaciones / Bedrooms</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-bath text-gold"></i> <span>2.5 Baños / Baths</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-couch text-gold"></i> <span class="es">2 Salas y Recibidor</span><span class="en">2 Living rooms & Foyer</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-utensils text-gold"></i> <span class="es">Cocina Integrada Italiana</span><span class="en">Italian Integrated Kitchen</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-car text-gold"></i> <span>6 Parking spaces</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-swimming-pool text-gold"></i> <span class="es">Piscina Moderna</span><span class="en">Modern Pool</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-fire text-gold"></i> <span class="es">Fogata (15 personas)</span><span class="en">Fire pit area (15 people)</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-stairs text-gold"></i> <span class="es">Escalera flotante</span><span class="en">Floating staircase</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-layer-group text-gold"></i> <span class="es">Balcón y Terraza aérea</span><span class="en">Balcony & Aerial terrace</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-seedling text-gold"></i> <span class="es">Sistema de riego subterráneo</span><span class="en">Underground irrigation</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-plus-square text-gold"></i> <span class="es">Terreno adicional p/ construir</span><span class="en">Additional land to build</span></li>
+                </ul>
+                <div class="mt-10 p-4 bg-gold/20 border border-gold/30 rounded-lg text-center font-bold text-gold uppercase tracking-widest">
+                    Ideal <span class="es">para inversión y vivienda</span><span class="en">for investment and living</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Referencing uploaded webp files) -->
+    <section class="py-16 bg-darkcard">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">
+                    <span class="es">Galería de la Propiedad</span>
+                    <span class="en">Property Gallery</span>
+                </h2>
+                <div class="h-1 w-20 bg-gold mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="pool-1-scaled.webp" alt="Pool Area" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800'">
+                <img src="kitchen-4-scaled.webp" alt="Italian Kitchen" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800'">
+                <img src="general-d-scaled.webp" alt="Living Room" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800'">
+                <img src="principal-scaled.webp" alt="Master Bedroom" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800'">
+                <img src="pool-2-scaled.webp" alt="Pool Night" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&q=80&w=800'">
+                <img src="exterior-2-1-scaled.webp" alt="Exterior" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&q=80&w=800'">
+                <img src="pasillo-scaled.webp" alt="Interior Details" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1600607687644-aac4c15cecb1?auto=format&fit=crop&q=80&w=800'">
+                <img src="habit-2-1-scaled.webp" alt="Bedroom 2" class="w-full h-64 object-cover rounded-lg hover:opacity-80 transition cursor-pointer" onerror="this.src='https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80&w=800'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Map & Contact Section -->
+    <section id="contact" class="py-24 max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Map -->
+            <div class="rounded-xl overflow-hidden glassmorphism border-none h-[500px]">
+                <iframe src="https://maps.google.com/maps?cid=9528309719441326799&hl=es&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="glassmorphism p-10 rounded-xl">
+                <h2 class="text-3xl font-bold text-white mb-2">
+                    <span class="es">Solicitar Contacto</span>
+                    <span class="en">Leave a Message</span>
+                </h2>
+                <p class="text-gray-400 mb-8">
+                    <span class="es">Y nos pondremos en contacto contigo a la brevedad.</span>
+                    <span class="en">And we will get back to you shortly.</span>
+                </p>
+
+                <form action="https://formspree.io/f/xyyqzzzz" method="POST" class="space-y-6"> <!-- Reemplazar con ID de Formspree real -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">
+                            <span class="es">Nombre Completo</span><span class="en">Full Name</span>
+                        </label>
+                        <input type="text" name="name" required class="w-full bg-darkbg border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                        <input type="email" name="email" required class="w-full bg-darkbg border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">
+                            <span class="es">Teléfono / WhatsApp</span><span class="en">Phone / WhatsApp</span>
+                        </label>
+                        <input type="tel" name="phone" required class="w-full bg-darkbg border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">
+                            <span class="es">Mensaje</span><span class="en">Message</span>
+                        </label>
+                        <textarea name="message" rows="3" class="w-full bg-darkbg border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold transition"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gold hover:bg-yellow-600 text-white font-bold py-4 rounded transition uppercase tracking-widest">
+                        <span class="es">Enviar Solicitud</span>
+                        <span class="en">Send Request</span>
+                    </button>
+                </form>
+
+                <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between gap-4">
+                    <div class="flex items-center gap-3 text-gray-300">
+                        <i class="fa-solid fa-envelope text-gold"></i>
+                        <a href="mailto:gananciasonline247@gmail.com" class="hover:text-gold transition">gananciasonline247@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-3 text-gray-300">
+                        <i class="fa-brands fa-whatsapp text-green-500 text-xl"></i>
+                        <a href="https://wa.me/50764949233?text=Hola,%20estoy%20interesado%20en%20la%20propiedad%20Casa%20Malibu%20frente%20al%20mar." target="_blank" class="hover:text-gold transition">(507) 6494-9233</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/50764949233?text=Hola,%20deseo%20más%20información%20sobre%20la%20Modern%20Industrial%20Oceanfront%20Home%20en%20Malibú" target="_blank" class="whatsapp-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-darkbg py-8 border-t border-gray-800 text-center">
+        <p class="text-gray-500 text-sm">
+            &copy; 2026 Casa Malibu. <span class="es">Todos los derechos reservados.</span><span class="en">All rights reserved.</span>
+        </p>
+    </footer>
+
+    <!-- Script for Language Toggle & Navbar Blur -->
+    <script>
+        let currentLang = 'es';
+        
+        function toggleLanguage() {
+            const btnText = document.getElementById('lang-btn-text');
+            const esElements = document.querySelectorAll('.es');
+            const enElements = document.querySelectorAll('.en');
+            
+            if(currentLang === 'es') {
+                esElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'inline-block');
+                btnText.textContent = 'ES';
+                currentLang = 'en';
+            } else {
+                esElements.forEach(el => el.style.display = 'inline-block');
+                enElements.forEach(el => el.style.display = 'none');
+                btnText.textContent = 'EN';
+                currentLang = 'es';
+            }
+        }
+
+        // Add blur to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+                nav.style.background = 'rgba(10, 10, 10, 0.85)';
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.style.background = 'rgba(20, 20, 20, 0.6)';
+            }
+        });
+    </script>
+</body>
+</html>
