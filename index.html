@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa Malibu | Luxury Oceanfront Home</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+    <!-- Favicon de Lujo (Letra M dorada) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0a0a'/><path d='M20 80 L20 20 L50 50 L80 20 L80 80' stroke='%23B68A3A' stroke-width='6' stroke-linejoin='round' stroke-linecap='round' fill='none'/></svg>">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,8 +20,8 @@
                 extend: {
                     colors: {
                         gold: '#B68A3A',
-                        darkbg: '#0a0a0a',
-                        darkcard: '#151515'
+                        darkbg: '#050505',
+                        darkcard: '#0f0f0f'
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
@@ -28,77 +30,90 @@
             }
         }
     </script>
+    
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { background-color: #0a0a0a; color: #f5f5f5; }
+        body { background-color: #050505; color: #f5f5f5; overflow-x: hidden; }
+        
+        /* Glassmorphism Premium */
         .glassmorphism {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            background: rgba(15, 15, 15, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
+        
         .text-gradient {
-            background: linear-gradient(to right, #eaddcf, #B68A3A);
+            background: linear-gradient(135deg, #FFF 0%, #B68A3A 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(10,10,10,1)), url('panoramica-2-scaled.webp');
+            background-image: linear-gradient(to bottom, rgba(5,5,5,0.3) 0%, rgba(5,5,5,1) 100%), url('panoramica-2-scaled.webp');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
+
         /* Language Toggle Classes */
         .en { display: none; }
         .es { display: block; }
+        span.en, span.es { display: inline; }
+        span.en { display: none; }
         
         /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             bottom: 40px;
             right: 40px;
             background-color: #25d366;
             color: #FFF;
-            border-radius: 50px;
+            border-radius: 50%;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            font-size: 32px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
             z-index: 90;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
         }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        
-        /* Lightbox Animations */
-        #lightbox { transition: opacity 0.3s ease; }
+        .whatsapp-float:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4); }
+
+        /* Scroll Revelations */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Hide Scrollbar for Slider */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-gold selection:text-black">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glassmorphism transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center">
-                        <i class="fa-solid fa-water text-gold"></i>
+    <nav class="fixed w-full z-50 glassmorphism transition-all duration-500 border-b border-white/5">
+        <div class="max-w-[90rem] mx-auto px-6 lg:px-12">
+            <div class="flex items-center justify-between h-24">
+                <div class="flex-shrink-0 flex items-center gap-4 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <svg viewBox="0 0 100 100" class="w-full h-full"><path d="M20 80 L20 20 L50 50 L80 20 L80 80" stroke="#B68A3A" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" fill="none"/></svg>
                     </div>
-                    <span class="font-bold text-xl tracking-widest uppercase text-white">Casa Malibu</span>
+                    <span class="font-light text-xl tracking-[0.3em] uppercase text-white">Casa <strong class="font-bold">Malibu</strong></span>
                 </div>
-                <div class="flex items-center gap-4">
-                    <a href="#contact" class="hidden md:block bg-gold hover:bg-yellow-600 text-white px-6 py-2 rounded-sm text-sm font-semibold tracking-wide uppercase transition-colors">
+                <div class="flex items-center gap-6">
+                    <button onclick="toggleLanguage()" class="text-xs font-semibold tracking-widest text-gray-400 hover:text-gold transition-colors uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-globe"></i> <span id="lang-btn-text">EN</span>
+                    </button>
+                    <a href="#contact" class="hidden md:block border border-gold text-gold hover:bg-gold hover:text-black px-8 py-3 rounded-sm text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300">
                         <span class="es">Contactar</span>
                         <span class="en">Contact</span>
                     </a>
-                    <button onclick="toggleLanguage()" class="border border-gray-600 px-3 py-1 rounded text-sm hover:border-gold transition-colors">
-                        <span id="lang-btn-text">EN</span>
-                    </button>
                 </div>
             </div>
         </div>
@@ -106,65 +121,65 @@
 
     <!-- Hero Section -->
     <section class="hero-bg h-screen flex items-center justify-center relative">
-        <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent"></div>
-        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
-            <h2 class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold mb-4">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 text-center px-4 max-w-6xl mx-auto mt-20 reveal active">
+            <h2 class="text-gold uppercase tracking-[0.4em] text-xs md:text-sm font-semibold mb-6">
                 <span class="es">Nueva Gorgona, Panamá</span>
                 <span class="en">Nueva Gorgona, Panama</span>
             </h2>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
-                <span class="es">Moderna Casa Industrial <br> <span class="text-gradient">Frente al Mar</span></span>
-                <span class="en">Modern Industrial Home <br> <span class="text-gradient">Oceanfront</span></span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-8 leading-tight tracking-wide">
+                <span class="es">Moderna Casa Industrial <br> <strong class="font-bold text-gradient">Frente al Mar</strong></span>
+                <span class="en">Modern Industrial Home <br> <strong class="font-bold text-gradient">Oceanfront</strong></span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-300 font-light mb-8">
-                <span class="es">Donde el lujo se encuentra con la serenidad del mar.</span>
-                <span class="en">Where luxury meets the serenity of the sea.</span>
-            </p>
-            <div class="text-3xl md:text-4xl font-bold text-white mb-10 border-b border-gray-700 pb-6 inline-block">
+            <div class="w-px h-16 bg-gradient-to-b from-gold to-transparent mx-auto mb-8"></div>
+            <div class="text-2xl md:text-3xl font-bold text-white mb-12 tracking-widest">
                 $2,730,000
             </div>
             <div>
-                <a href="#contact" class="bg-gold hover:bg-yellow-600 text-white px-8 py-4 rounded-sm text-lg font-semibold tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(182,138,58,0.3)]">
-                    <span class="es">Solicitar Información</span>
-                    <span class="en">Request Information</span>
+                <a href="#gallery-section" class="text-gray-300 hover:text-gold transition-colors text-sm uppercase tracking-widest flex flex-col items-center gap-3">
+                    <span class="es">Descubrir</span><span class="en">Discover</span>
+                    <i class="fa-solid fa-chevron-down animate-bounce"></i>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Description & Features Grid -->
-    <section class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <section class="py-32 px-6 lg:px-12 max-w-[90rem] mx-auto overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
             <!-- Descriptions -->
-            <div class="space-y-12">
-                <div class="glassmorphism p-8 rounded-xl border-l-4 border-l-gold">
-                    <h3 class="text-2xl font-bold text-white mb-4">
-                        <span class="es">Inversión con Retorno en Airbnb</span>
-                        <span class="en">Investment with Return in Airbnb</span>
+            <div class="space-y-16">
+                <div class="reveal">
+                    <span class="text-gold text-sm font-bold tracking-[0.2em] uppercase mb-4 block">01 // <span class="es">Inversión</span><span class="en">Investment</span></span>
+                    <h3 class="text-3xl lg:text-4xl font-light text-white mb-6">
+                        <span class="es">Retorno de Inversión en <strong class="font-bold">Airbnb</strong></span>
+                        <span class="en">Investment with Return on <strong class="font-bold">Airbnb</strong></span>
                     </h3>
-                    <p class="text-gray-400 leading-relaxed text-sm">
-                        <span class="es">Esta propiedad en Playa Malibú no es solo un refugio de lujo frente al mar, sino también una inversión excepcional con retornos seguros. Con el potencial de generar más de $6,000 mensuales, es ideal para quienes buscan un hogar para disfrutar de vacaciones inolvidables, así como para inversores que buscan establecer un negocio próspero. Imagina combinar el placer de vivir en el paraíso con la seguridad de una inversión rentable.</span>
-                        <span class="en">This property in Malibu Beach is not only a luxury oceanfront retreat but also an exceptional investment with secure returns. With the potential to generate over $6,000 monthly, this property is ideal for those seeking a home to enjoy unforgettable vacations as well as for investors looking to establish a thriving business in an exclusive environment. Imagine combining the pleasure of living in paradise with the security of a profitable investment.</span>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base font-light">
+                        <span class="es">Esta propiedad en Playa Malibú no es solo un refugio de lujo frente al mar, sino también una inversión excepcional con retornos seguros. Con el potencial de generar más de $6,000 mensuales, es ideal para quienes buscan un hogar para disfrutar de vacaciones inolvidables, así como para inversores visionarios. Imagina combinar el placer de vivir en el paraíso con la seguridad de una inversión rentable.</span>
+                        <span class="en">This property in Malibu Beach is not only a luxury oceanfront retreat but also an exceptional investment with secure returns. With the potential to generate over $6,000 monthly, this property is ideal for those seeking a home to enjoy unforgettable vacations as well as for visionay investors. Imagine combining the pleasure of living in paradise with the security of a profitable investment.</span>
                     </p>
                 </div>
                 
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold text-white mb-4">
-                        <span class="es">Combina diversión y relajación</span>
-                        <span class="en">Combine fun and relaxation</span>
+                <div class="reveal">
+                    <span class="text-gold text-sm font-bold tracking-[0.2em] uppercase mb-4 block">02 // <span class="es">Estilo de Vida</span><span class="en">Lifestyle</span></span>
+                    <h3 class="text-3xl lg:text-4xl font-light text-white mb-6">
+                        <span class="es">Oasis de <strong class="font-bold">Relajación</strong></span>
+                        <span class="en">Oasis of <strong class="font-bold">Relaxation</strong></span>
                     </h3>
-                    <p class="text-gray-400 leading-relaxed text-sm">
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base font-light">
                         <span class="es">Imagina un estilo de vida donde cada día se siente como unas vacaciones. Disfruta de una piscina moderna, un área de fogata exclusiva con acabados de microcemento para más de 15 personas, barbacoa de última generación y un amplio jardín mantenido por un eficiente sistema de riego subterráneo.</span>
                         <span class="en">Imagine a lifestyle where every day feels like a vacation. Enjoy a modern pool, the exclusive fire pit area with micro-cement finishes perfect for over 15 people, a state-of-the-art BBQ, and a spacious garden maintained by an efficient underground irrigation system.</span>
                     </p>
                 </div>
 
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold text-white mb-4">
-                        <span class="es">Elegancia y Comodidad</span>
-                        <span class="en">A Space of Elegance and Comfort</span>
+                <div class="reveal">
+                    <span class="text-gold text-sm font-bold tracking-[0.2em] uppercase mb-4 block">03 // <span class="es">Diseño</span><span class="en">Design</span></span>
+                    <h3 class="text-3xl lg:text-4xl font-light text-white mb-6">
+                        <span class="es">Elegancia y <strong class="font-bold">Comodidad</strong></span>
+                        <span class="en">Elegance and <strong class="font-bold">Comfort</strong></span>
                     </h3>
-                    <p class="text-gray-400 leading-relaxed text-sm">
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base font-light">
                         <span class="es">Sus espacios interiores son amplios y modernos. Con una luminosa sala de estar que fluye hacia una cocina gourmet de concepto abierto, áreas de descanso meticulosamente diseñadas para brindar serenidad y detalles contemporáneos en cada rincón.</span>
                         <span class="en">Its interior spaces are spacious and modern, designed to offer comfort and style. With a bright living room that flows into a gourmet open-concept kitchen, resting areas meticulously designed to provide serenity, and high-quality contemporary finishes.</span>
                     </p>
@@ -172,177 +187,129 @@
             </div>
 
             <!-- Features List -->
-            <div class="glassmorphism p-10 rounded-xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-16 bg-gold opacity-10 blur-[100px] rounded-full"></div>
-                <h3 class="text-3xl font-bold text-white mb-8 border-b border-gray-700 pb-4">
-                    <span class="es">Características Principales</span>
-                    <span class="en">Property Features</span>
-                </h3>
-                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4 text-gray-300">
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-water text-gold"></i> <span class="es">Primera línea de playa</span><span class="en">First line of Malibu Beach</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-bed text-gold"></i> <span class="es">4 Habitaciones</span><span class="en">4 Bedrooms</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-bath text-gold"></i> <span class="es">2.5 Baños</span><span class="en">2.5 Baths</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-couch text-gold"></i> <span class="es">2 Salas y Recibidor</span><span class="en">2 Living rooms & Foyer</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-utensils text-gold"></i> <span class="es">Cocina Integrada Italiana</span><span class="en">Italian Integrated Kitchen</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-car text-gold"></i> <span class="es">6 Estacionamientos</span><span class="en">6 Parking spaces</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-swimming-pool text-gold"></i> <span class="es">Piscina Moderna</span><span class="en">Modern Pool</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-fire text-gold"></i> <span class="es">Fogata (15 personas)</span><span class="en">Fire pit area (15 people)</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-stairs text-gold"></i> <span class="es">Escalera flotante</span><span class="en">Floating staircase</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-layer-group text-gold"></i> <span class="es">Balcón y Terraza aérea</span><span class="en">Balcony & Aerial terrace</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-seedling text-gold"></i> <span class="es">Sistema de riego subterráneo</span><span class="en">Underground irrigation</span></li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-plus-square text-gold"></i> <span class="es">Terreno adicional p/ construir</span><span class="en">Additional land to build</span></li>
-                </ul>
-                <div class="mt-10 p-4 bg-gold/20 border border-gold/30 rounded-lg text-center font-bold text-gold uppercase tracking-widest">
-                    Ideal <span class="es">para inversión y vivienda</span><span class="en">for investment and living</span>
+            <div class="reveal relative h-full">
+                <div class="glassmorphism p-12 rounded-sm border border-white/10 h-full flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute -top-32 -right-32 w-64 h-64 bg-gold opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
+                    <div class="absolute -bottom-32 -left-32 w-64 h-64 bg-gold opacity-5 blur-[100px] rounded-full pointer-events-none"></div>
+                    
+                    <h3 class="text-2xl font-light text-white mb-10 pb-6 border-b border-white/10">
+                        <span class="es">Detalles de la <strong class="font-bold">Propiedad</strong></span>
+                        <span class="en">Property <strong class="font-bold">Details</strong></span>
+                    </h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-6 text-gray-300 font-light text-sm">
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-water text-gold mt-1"></i> <span class="es">Primera línea de playa</span><span class="en">First line of Malibu Beach</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-bed text-gold mt-1"></i> <span class="es">4 Habitaciones</span><span class="en">4 Bedrooms</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-bath text-gold mt-1"></i> <span class="es">2.5 Baños</span><span class="en">2.5 Baths</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-couch text-gold mt-1"></i> <span class="es">2 Salas y Recibidor</span><span class="en">2 Living rooms & Foyer</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-utensils text-gold mt-1"></i> <span class="es">Cocina Integrada Italiana</span><span class="en">Italian Integrated Kitchen</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-car text-gold mt-1"></i> <span class="es">6 Estacionamientos</span><span class="en">6 Parking spaces</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-swimming-pool text-gold mt-1"></i> <span class="es">Piscina Moderna</span><span class="en">Modern Pool</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-fire text-gold mt-1"></i> <span class="es">Fogata (15 personas)</span><span class="en">Fire pit area (15 people)</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-stairs text-gold mt-1"></i> <span class="es">Escalera flotante</span><span class="en">Floating staircase</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-layer-group text-gold mt-1"></i> <span class="es">Balcón y Terraza aérea</span><span class="en">Balcony & Aerial terrace</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-seedling text-gold mt-1"></i> <span class="es">Sistema de riego sub.</span><span class="en">Underground irrigation</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-plus-square text-gold mt-1"></i> <span class="es">Lote para construir</span><span class="en">Additional land to build</span></li>
+                    </ul>
+                    <div class="mt-12 pt-6 border-t border-white/10 text-center">
+                        <span class="text-xs font-bold text-gold uppercase tracking-[0.3em]">
+                            Ideal <span class="es">para inversión y vivienda</span><span class="en">for investment & living</span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section with Complete Image Roster -->
-    <section class="py-16 bg-darkcard">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">
-                    <span class="es">Galería de la Propiedad</span>
-                    <span class="en">Property Gallery</span>
-                </h2>
-                <div class="h-1 w-20 bg-gold mx-auto mt-4"></div>
-                <p class="text-gray-400 mt-4 text-sm"><span class="es">Haz clic en cualquier imagen para ampliarla</span><span class="en">Click any image to enlarge</span></p>
+    <!-- Interactive Slider Gallery Section -->
+    <section id="gallery-section" class="py-24 bg-darkcard relative overflow-hidden">
+        <div class="max-w-[90rem] mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
+                <div>
+                    <span class="text-gold text-sm font-bold tracking-[0.2em] uppercase mb-2 block">Visuals</span>
+                    <h2 class="text-3xl md:text-5xl font-light text-white">
+                        <span class="es">Galería <strong class="font-bold">Interactiva</strong></span>
+                        <span class="en">Interactive <strong class="font-bold">Gallery</strong></span>
+                    </h2>
+                </div>
+                <div class="mt-6 md:mt-0 flex gap-4">
+                    <button onclick="scrollSlider(-1)" class="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-gold transition-colors">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button onclick="scrollSlider(1)" class="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-gold transition-colors">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
             
-            <!-- Grid Complete of 29 Images -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-container">
-                <!-- Exteriors & Aerials -->
-                <img src="panoramica-2-scaled.webp" alt="Panoramica 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="panoramica.webp" alt="Panoramica" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="exterior-2-1-scaled.webp" alt="Exterior 2-1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="exterior-2-2-scaled.webp" alt="Exterior 2-2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="exterior-3-2-scaled.webp" alt="Exterior 3-2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                
-                <!-- Pool Area -->
-                <img src="pool-1-scaled.webp" alt="Pool 1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="pool-2-scaled.webp" alt="Pool 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="pool-3-scaled.webp" alt="Pool 3" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="pool-4-scaled.webp" alt="Pool 4" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="pool-d-scaled.webp" alt="Pool D" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                
-                <!-- BBQ & Firepit -->
-                <img src="bq-1-2-scaled.webp" alt="BBQ 1-2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="bbq-2-scaled.webp" alt="BBQ 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                
-                <!-- Social Areas & Kitchen -->
-                <img src="general-d-scaled.webp" alt="General Living Area" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="kitchen-1-scaled.webp" alt="Kitchen 1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="kitchen-2-scaled.webp" alt="Kitchen 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="kitchen-3-scaled.webp" alt="Kitchen 3" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="kitchen-4-scaled.webp" alt="Kitchen 4" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                
-                <!-- Hallways & Bathrooms -->
-                <img src="pasillo-scaled.webp" alt="Pasillo 1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="pasillo2-scaled.webp" alt="Pasillo 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="sanitario-scaled.webp" alt="Sanitario" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="sanitario-2-2-scaled.webp" alt="Sanitario 2-2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                
-                <!-- Bedrooms -->
-                <img src="principal-scaled.webp" alt="Habitacion Principal" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="habit-2-scaled.webp" alt="Habitacion 2" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="habit-2-1-scaled.webp" alt="Habitacion 2-1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="room1-scaled.webp" alt="Room 1" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="room1-3-scaled.webp" alt="Room 1-3" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="room1-4-scaled.webp" alt="Room 1-4" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                <img src="room1-d-scaled.webp" alt="Room 1-d" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
-                
-                <!-- Extra/Misc -->
-                <img src="WhatsApp-Image-2024-08-21-at-13.09.40-PM-1-1.webp" alt="Extra Image" class="gallery-img w-full h-48 object-cover rounded-lg hover:opacity-70 transition cursor-pointer" loading="lazy">
+            <!-- Slider Container (8 Principal Images) -->
+            <div class="reveal">
+                <div id="gallery-slider" class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 hide-scrollbar cursor-grab active:cursor-grabbing">
+                    <!-- Images will be injected here via JS -->
+                </div>
+                <p class="text-center text-xs text-gray-500 tracking-widest mt-4 uppercase"><span class="es">Desliza para explorar</span><span class="en">Swipe to explore</span></p>
             </div>
         </div>
     </section>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300">
-        <!-- Close Button -->
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-4xl hover:text-gold transition z-50">
-            &times;
-        </button>
-        
-        <!-- Main Image Container -->
-        <div class="relative w-full h-full flex items-center justify-center p-4">
-            <!-- Prev Button -->
-            <button onclick="prevImage(event)" class="absolute left-4 md:left-10 text-white text-4xl hover:text-gold transition bg-black/50 w-12 h-12 rounded-full flex items-center justify-center z-50">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            
-            <img id="lightbox-img" src="" class="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl transition-transform duration-300 select-none">
-            
-            <!-- Next Button -->
-            <button onclick="nextImage(event)" class="absolute right-4 md:right-10 text-white text-4xl hover:text-gold transition bg-black/50 w-12 h-12 rounded-full flex items-center justify-center z-50">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
-        </div>
-        
-        <!-- Image Counter -->
-        <div class="absolute bottom-6 text-gray-400 font-mono text-sm" id="lightbox-counter"></div>
-    </div>
-
     <!-- Map & Contact Section -->
-    <section id="contact" class="py-24 max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Map -->
-            <div class="rounded-xl overflow-hidden glassmorphism border-none h-[500px]">
-                <iframe src="https://maps.google.com/maps?cid=9528309719441326799&hl=es&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
+    <section id="contact" class="py-32 max-w-[90rem] mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <!-- Contact Form -->
-            <div class="glassmorphism p-10 rounded-xl">
-                <h2 class="text-3xl font-bold text-white mb-2">
-                    <span class="es">Solicitar Contacto</span>
-                    <span class="en">Leave a Message</span>
+            <div class="lg:col-span-5 reveal">
+                <span class="text-gold text-sm font-bold tracking-[0.2em] uppercase mb-4 block"><span class="es">Contacto</span><span class="en">Contact</span></span>
+                <h2 class="text-3xl lg:text-4xl font-light text-white mb-2">
+                    <span class="es">Envíe un <strong class="font-bold">Mensaje</strong></span>
+                    <span class="en">Leave a <strong class="font-bold">Message</strong></span>
                 </h2>
-                <p class="text-gray-400 mb-8">
-                    <span class="es">Y nos pondremos en contacto contigo a la brevedad.</span>
-                    <span class="en">And we will get back to you shortly.</span>
+                <p class="text-gray-400 mb-10 font-light">
+                    <span class="es">Nos pondremos en contacto a la brevedad.</span>
+                    <span class="en">We will get back to you shortly.</span>
                 </p>
 
-                <form action="https://formspree.io/f/xyyqzzzz" method="POST" class="space-y-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-400 mb-2">
+                <form action="https://formspree.io/f/xyyqzzzz" method="POST" class="space-y-8">
+                    <div class="relative">
+                        <input type="text" name="name" required class="peer w-full bg-transparent border-b border-gray-700 py-3 text-white focus:outline-none focus:border-gold transition placeholder-transparent" placeholder="Name">
+                        <label class="absolute left-0 -top-3.5 text-xs text-gray-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-gold uppercase tracking-wider font-semibold">
                             <span class="es">Nombre Completo</span><span class="en">Full Name</span>
                         </label>
-                        <input type="text" name="name" required class="w-full bg-darkbg border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold transition">
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
-                        <input type="email" name="email" required class="w-full bg-darkbg border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold transition">
+                    <div class="relative">
+                        <input type="email" name="email" required class="peer w-full bg-transparent border-b border-gray-700 py-3 text-white focus:outline-none focus:border-gold transition placeholder-transparent" placeholder="Email">
+                        <label class="absolute left-0 -top-3.5 text-xs text-gray-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-gold uppercase tracking-wider font-semibold">Email</label>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-400 mb-2">
+                    <div class="relative">
+                        <input type="tel" name="phone" required class="peer w-full bg-transparent border-b border-gray-700 py-3 text-white focus:outline-none focus:border-gold transition placeholder-transparent" placeholder="Phone">
+                        <label class="absolute left-0 -top-3.5 text-xs text-gray-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-gold uppercase tracking-wider font-semibold">
                             <span class="es">Teléfono / WhatsApp</span><span class="en">Phone / WhatsApp</span>
                         </label>
-                        <input type="tel" name="phone" required class="w-full bg-darkbg border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold transition">
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-400 mb-2">
+                    <div class="relative">
+                        <textarea name="message" rows="1" required class="peer w-full bg-transparent border-b border-gray-700 py-3 text-white focus:outline-none focus:border-gold transition placeholder-transparent resize-none overflow-hidden" placeholder="Message" oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
+                        <label class="absolute left-0 -top-3.5 text-xs text-gray-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-gold uppercase tracking-wider font-semibold">
                             <span class="es">Mensaje</span><span class="en">Message</span>
                         </label>
-                        <textarea name="message" rows="3" class="w-full bg-darkbg border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold transition"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-gold hover:bg-yellow-600 text-white font-bold py-4 rounded transition uppercase tracking-widest">
+                    <button type="submit" class="w-full bg-white text-black hover:bg-gold hover:text-white font-bold py-4 rounded-sm transition-colors duration-300 uppercase tracking-[0.2em] text-sm">
                         <span class="es">Enviar Solicitud</span>
                         <span class="en">Send Request</span>
                     </button>
                 </form>
 
-                <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between gap-4">
-                    <div class="flex items-center gap-3 text-gray-300">
-                        <i class="fa-solid fa-envelope text-gold"></i>
-                        <a href="mailto:gananciasonline247@gmail.com" class="hover:text-gold transition">gananciasonline247@gmail.com</a>
+                <div class="mt-12 pt-8 border-t border-gray-800 space-y-4 font-light text-sm">
+                    <div class="flex items-center gap-4 text-gray-300 hover:text-gold transition cursor-pointer">
+                        <i class="fa-solid fa-envelope w-5"></i>
+                        <a href="mailto:gananciasonline247@gmail.com">gananciasonline247@gmail.com</a>
                     </div>
-                    <div class="flex items-center gap-3 text-gray-300">
-                        <i class="fa-brands fa-whatsapp text-green-500 text-xl"></i>
-                        <a href="https://wa.me/50764949233?text=Hola,%20estoy%20interesado%20en%20la%20propiedad%20Casa%20Malibu%20frente%20al%20mar." target="_blank" class="hover:text-gold transition">(507) 6494-9233</a>
+                    <div class="flex items-center gap-4 text-gray-300 hover:text-gold transition cursor-pointer">
+                        <i class="fa-brands fa-whatsapp w-5 text-lg"></i>
+                        <a href="https://wa.me/50764949233?text=Hola,%20estoy%20interesado%20en%20la%20propiedad%20Casa%20Malibu%20frente%20al%20mar." target="_blank">(507) 6494-9233</a>
                     </div>
                 </div>
+            </div>
+
+            <!-- Map -->
+            <div class="lg:col-span-7 reveal h-[500px] lg:h-auto min-h-[500px] rounded-sm overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 border border-white/5">
+                <iframe src="https://maps.google.com/maps?cid=9528309719441326799&hl=es&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -353,72 +320,109 @@
     </a>
 
     <!-- Footer -->
-    <footer class="bg-darkbg py-8 border-t border-gray-800 text-center">
-        <p class="text-gray-500 text-sm">
+    <footer class="bg-[#020202] py-12 border-t border-gray-900 text-center">
+        <div class="w-10 h-10 mx-auto mb-6 opacity-30">
+            <svg viewBox="0 0 100 100" class="w-full h-full"><path d="M20 80 L20 20 L50 50 L80 20 L80 80" stroke="#FFF" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill="none"/></svg>
+        </div>
+        <p class="text-gray-600 text-xs tracking-widest uppercase font-semibold">
             &copy; 2026 Casa Malibu. <span class="es">Todos los derechos reservados.</span><span class="en">All rights reserved.</span>
         </p>
     </footer>
 
-    <!-- Interactive Scripts -->
-    <script>
-        // --- 1. Language Toggle Logic ---
-        let currentLang = 'es';
+    <!-- Fullscreen Lightbox Modal (For ALL 29 images) -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500">
+        <div class="absolute top-0 w-full p-6 flex justify-between items-center z-50 bg-gradient-to-b from-black/80 to-transparent">
+            <div class="text-gold font-bold tracking-[0.2em] text-sm" id="lightbox-counter">1 / 29</div>
+            <button onclick="closeLightbox()" class="text-white text-3xl hover:text-gold transition transform hover:rotate-90 duration-300">
+                &times;
+            </button>
+        </div>
         
-        function toggleLanguage() {
-            const btnText = document.getElementById('lang-btn-text');
-            const esElements = document.querySelectorAll('.es');
-            const enElements = document.querySelectorAll('.en');
+        <div class="relative w-full h-full flex items-center justify-center p-4 lg:p-12 select-none" id="lightbox-touch-area">
+            <button onclick="prevImage(event)" class="absolute left-4 lg:left-12 text-white text-2xl hover:text-black hover:bg-gold transition bg-white/10 backdrop-blur-md w-14 h-14 rounded-full flex items-center justify-center z-50">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
             
-            if(currentLang === 'es') {
-                esElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display = 'inline-block');
-                btnText.textContent = 'ES';
-                currentLang = 'en';
-            } else {
-                esElements.forEach(el => el.style.display = 'inline-block');
-                enElements.forEach(el => el.style.display = 'none');
-                btnText.textContent = 'EN';
-                currentLang = 'es';
-            }
-        }
+            <img id="lightbox-img" src="" class="max-h-full max-w-full object-contain shadow-2xl transition-opacity duration-300 opacity-0">
+            
+            <button onclick="nextImage(event)" class="absolute right-4 lg:right-12 text-white text-2xl hover:text-black hover:bg-gold transition bg-white/10 backdrop-blur-md w-14 h-14 rounded-full flex items-center justify-center z-50">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
 
-        // --- 2. Navbar Blur on Scroll ---
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-lg');
-                nav.style.background = 'rgba(10, 10, 10, 0.85)';
-            } else {
-                nav.classList.remove('shadow-lg');
-                nav.style.background = 'rgba(20, 20, 20, 0.6)';
-            }
+    <!-- Scripts -->
+    <script>
+        // --- 1. Master Image List (Todas las 29 imágenes válidas extraidas del repositorio) ---
+        const allImages = [
+            "panoramica-2-scaled.webp", "panoramica.webp", "exterior-2-1-scaled.webp", 
+            "exterior-2-2-scaled.webp", "exterior-3-2-scaled.webp", "pool-1-scaled.webp", 
+            "pool-2-scaled.webp", "pool-3-scaled.webp", "pool-4-scaled.webp", 
+            "pool-d-scaled.webp", "bq-1-2-scaled.webp", "bbq-2-scaled.webp",
+            "general-d-scaled.webp", "kitchen-1-scaled.webp", "kitchen-2-scaled.webp", 
+            "kitchen-3-scaled.webp", "kitchen-4-scaled.webp", "pasillo-scaled.webp", 
+            "pasillo2-scaled.webp", "sanitario-scaled.webp", "sanitario-2-2-scaled.webp",
+            "principal-scaled.webp", "habit-2-scaled.webp", "habit-2-1-scaled.webp", 
+            "room1-2-scaled.webp", "room1-3-scaled.webp", "room1-4-scaled.webp", 
+            "room1-d-scaled.webp", "WhatsApp-Image-2024-08-21-at-13.09.40-PM-1-1.webp"
+        ];
+
+        // Las 8 principales para el slider interactivo
+        const principalImages = [
+            "panoramica-2-scaled.webp", "pool-1-scaled.webp", "general-d-scaled.webp", 
+            "kitchen-4-scaled.webp", "principal-scaled.webp", "pool-2-scaled.webp", 
+            "bq-1-2-scaled.webp", "exterior-2-1-scaled.webp"
+        ];
+
+        // Construir el Slider Inical
+        const sliderContainer = document.getElementById('gallery-slider');
+        principalImages.forEach((imgSrc, index) => {
+            const globalIndex = allImages.indexOf(imgSrc);
+            const slide = document.createElement('div');
+            slide.className = 'snap-center flex-shrink-0 w-[85vw] sm:w-[60vw] lg:w-[30vw] h-[400px] lg:h-[450px] relative rounded-sm overflow-hidden group cursor-pointer';
+            slide.onclick = () => openLightbox(globalIndex);
+            
+            slide.innerHTML = `
+                <img src="${imgSrc}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500"></div>
+                <div class="absolute bottom-6 right-6 bg-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-sm text-xs font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2">
+                    <i class="fa-solid fa-expand"></i> Ampliar
+                </div>
+            `;
+            sliderContainer.appendChild(slide);
         });
 
-        // --- 3. Lightbox Gallery Logic ---
+        // Botón final en el slider para ver TODO
+        const seeAllSlide = document.createElement('div');
+        seeAllSlide.className = 'snap-center flex-shrink-0 w-[85vw] sm:w-[60vw] lg:w-[30vw] h-[400px] lg:h-[450px] relative rounded-sm overflow-hidden flex flex-col items-center justify-center border border-gray-800 bg-[#0a0a0a] hover:bg-[#111] transition-colors cursor-pointer group';
+        seeAllSlide.onclick = () => openLightbox(0);
+        seeAllSlide.innerHTML = `
+            <div class="w-16 h-16 rounded-full border border-gold text-gold flex items-center justify-center text-xl mb-4 group-hover:bg-gold group-hover:text-black transition-all">
+                <i class="fa-solid fa-images"></i>
+            </div>
+            <h3 class="text-white font-bold tracking-[0.2em] uppercase text-sm"><span class="es">Ver Galería</span><span class="en">View Gallery</span></h3>
+            <p class="text-gray-500 mt-2 text-xs">(29 Fotos)</p>
+        `;
+        sliderContainer.appendChild(seeAllSlide);
+
+        // --- 2. Lógica del Slider (Botones manuales) ---
+        function scrollSlider(direction) {
+            const scrollAmount = window.innerWidth > 1024 ? window.innerWidth * 0.3 : window.innerWidth * 0.85;
+            sliderContainer.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        // --- 3. Lógica del Lightbox (Galería de 29 fotos con Swipe) ---
         let currentImageIndex = 0;
-        let imagesArray = [];
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxCounter = document.getElementById('lightbox-counter');
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const galleryImages = document.querySelectorAll('.gallery-img');
-            
-            galleryImages.forEach((img, index) => {
-                imagesArray.push(img.src);
-                img.addEventListener('click', () => openLightbox(index));
-            });
-        });
-
         function openLightbox(index) {
             currentImageIndex = index;
-            updateLightboxContent();
             lightbox.classList.remove('hidden');
-            // Timeout to allow display:block to apply before animating opacity
-            setTimeout(() => {
-                lightbox.classList.remove('opacity-0');
-            }, 10);
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => lightbox.classList.remove('opacity-0'), 20);
+            updateLightboxContent();
         }
 
         function closeLightbox() {
@@ -426,35 +430,57 @@
             setTimeout(() => {
                 lightbox.classList.add('hidden');
                 lightboxImg.src = '';
-            }, 300); // Wait for transition
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            }, 500);
+            document.body.style.overflow = 'auto';
         }
 
         function nextImage(e) {
             if(e) e.stopPropagation();
-            currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
-            updateLightboxContent();
+            fadeImage(() => {
+                currentImageIndex = (currentImageIndex + 1) % allImages.length;
+                updateLightboxContent(false);
+            });
         }
 
         function prevImage(e) {
             if(e) e.stopPropagation();
-            currentImageIndex = (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
-            updateLightboxContent();
+            fadeImage(() => {
+                currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
+                updateLightboxContent(false);
+            });
         }
 
-        function updateLightboxContent() {
-            lightboxImg.src = imagesArray[currentImageIndex];
-            lightboxCounter.textContent = `${currentImageIndex + 1} / ${imagesArray.length}`;
+        function fadeImage(callback) {
+            lightboxImg.classList.remove('opacity-100');
+            lightboxImg.classList.add('opacity-0');
+            setTimeout(callback, 200);
         }
 
-        // Close lightbox when clicking outside the image
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox || e.target.parentElement === lightbox) {
-                closeLightbox();
-            }
-        });
+        function updateLightboxContent(firstLoad = true) {
+            lightboxImg.src = allImages[currentImageIndex];
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${allImages.length}`;
+            lightboxImg.onload = () => {
+                lightboxImg.classList.remove('opacity-0');
+                lightboxImg.classList.add('opacity-100');
+            };
+        }
 
-        // Keyboard navigation for Lightbox
+        // Eventos táctiles para Swipe en Móvil en el Lightbox
+        let touchstartX = 0;
+        let touchendX = 0;
+        const touchArea = document.getElementById('lightbox-touch-area');
+
+        touchArea.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; }, {passive: true});
+        touchArea.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, {passive: true});
+
+        function handleSwipe() {
+            if (touchendX < touchstartX - 50) nextImage(); // Swipe left
+            if (touchendX > touchstartX + 50) prevImage(); // Swipe right
+        }
+
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('hidden')) {
                 if (e.key === 'ArrowRight') nextImage();
@@ -462,6 +488,55 @@
                 if (e.key === 'Escape') closeLightbox();
             }
         });
+
+        // --- 4. Sistema Multi-idioma ---
+        let currentLang = 'es';
+        function toggleLanguage() {
+            const btnText = document.getElementById('lang-btn-text');
+            const esElements = document.querySelectorAll('.es');
+            const enElements = document.querySelectorAll('.en');
+            
+            if(currentLang === 'es') {
+                esElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => {
+                    if (el.tagName === 'SPAN' && !el.classList.contains('block')) el.style.display = 'inline';
+                    else el.style.display = 'block';
+                });
+                btnText.textContent = 'ES';
+                currentLang = 'en';
+            } else {
+                esElements.forEach(el => {
+                    if (el.tagName === 'SPAN' && !el.classList.contains('block')) el.style.display = 'inline';
+                    else el.style.display = 'block';
+                });
+                enElements.forEach(el => el.style.display = 'none');
+                btnText.textContent = 'EN';
+                currentLang = 'es';
+            }
+        }
+
+        // --- 5. Animaciones al hacer Scroll (Reveal) y Navbar ---
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black/90', 'backdrop-blur-xl', 'shadow-2xl');
+                nav.classList.remove('border-white/5');
+            } else {
+                nav.classList.remove('bg-black/90', 'backdrop-blur-xl', 'shadow-2xl');
+                nav.classList.add('border-white/5');
+            }
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
